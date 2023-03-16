@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity = "top"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Unit Conversion"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        tools:ignore="MissingConstraints"/>
+
+    <Spinner
+        android:id="@+id/mainSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:entries="@array/main_spinner_items"
+        android:spinnerMode="dropdown"
+        android:textAlignment="center" />
+
+    <Spinner
+        android:contentDescription="firstCalculationsp"
+        android:id="@+id/firstSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:spinnerMode="dropdown"
+        android:textAlignment="center"/>
+    <EditText
+        android:id="@+id/firstBox"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:inputType="numberDecimal"
+        android:hint="Enter the Value" />
+
+    <Spinner
+        android:contentDescription="secondCalculationsp"
+        android:id="@+id/secondSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:spinnerMode="dropdown"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/secondBox"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:hint="Output Will be displayed here"/>
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+        <Button
+            android:id="@+id/Submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Convert" />
+    </LinearLayout>
+</LinearLayout>

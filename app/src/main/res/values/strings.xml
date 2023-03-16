@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Conversion Calculator</string>
+    <string-array name="main_spinner_items">
+        <item>Please select an option</item>
+        <item>Length</item>
+        <item>Mass</item>
+        <item>Volume</item>
+        <item>Temperature</item>
+    </string-array>
+</resources>
