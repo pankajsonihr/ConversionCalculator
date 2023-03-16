@@ -1,24 +1,22 @@
 package io.conversioncalculator
 
-import android.app.Activity
+import android.content.Context
 import android.os.Bundle
-import android.text.Editable
-import android.text.SpannableStringBuilder
-import android.text.TextWatcher
-import android.util.Log
+import android.text.TextUtils
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.EditText
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import io.conversioncalculator.databinding.ActivityMainBinding
 
 
-class MainActivity : AppCompatActivity(), View.OnClickListener {
+class MainActivity : AppCompatActivity() {
     lateinit var mainspinner:Spinner
     lateinit var binding:ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
+        //Pankaj - A00244692
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -96,14 +94,28 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 // Do nothing
             }
         }
+        //I have make sure app will not crash on submit button and also put popup message if anything wrong is selected
         binding.Submit.setOnClickListener {
-            UpdateDisplay()
+            val context: Context = applicationContext
+
+            val text: CharSequence = "Please Select an Option First"
+            val duration = Toast.LENGTH_SHORT
+            var toast = Toast.makeText(context, text, duration)
+
+            if(mainspinner.selectedItem.toString().equals("Please select an option")) {
+
+                toast.show()
+            }else {
+                if (TextUtils.isEmpty(binding.firstBox.editableText)) {
+                    toast = Toast.makeText(context, "Please Enter the Value First", duration)
+                    toast.show()
+                } else {
+                    UpdateDisplay()
+                }
+            }
         }
-
     }
-    override fun onClick(v:View?){
-
-    }
+    //This function is to check which unit is selected in both spinner and then it will calculate entered value into the selected unit
     fun UpdateDisplay(){
         if (binding.firstSpinner.selectedItem.toString().equals("KM") && binding.secondSpinner.selectedItem.toString().equals("M") ){
 
